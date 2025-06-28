@@ -1,11 +1,9 @@
-// storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-// import { MarkFeature } from './features/mark/mark.server'
 import { MarkFeature } from './features/mark'
 import sharp from 'sharp'
 
@@ -26,10 +24,10 @@ export default buildConfig({
   collections: [Users, Media , Posts],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => {
-      const removeFeatures = ['subscript', 'superscript', 'code', 'blockquote', 'horizontalRule', 'link', 'image', 'video', 'audio']
+      const removeFeatures = ['link', 'image', 'video', 'audio']
       return [
         ...defaultFeatures.filter((feature) => !removeFeatures.includes(feature.key)),
-        MarkFeature(),
+        //  i will add features here
       ]
     },
   }),
@@ -43,6 +41,5 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
   ],
 })
