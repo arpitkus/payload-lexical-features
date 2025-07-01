@@ -50,3 +50,28 @@
      Users can add footnotes to text while editing content.
      Footnotes are displayed as superscript numbers with corresponding content at the bottom.
      Footnotes should be editable and persist with content.
+
+
+               ### Main Implementation Steps
+          
+          1. **Custom Node:**  
+             - `src/lexical/nodes/FootnoteNode.ts`  
+             Defines a `FootnoteNode` that renders as a superscript marker and stores footnote content.
+          
+          2. **Client Feature:**  
+             - `src/lexical/features/FootnoteFeature.client.tsx`  
+             Registers the node, modal, popup, and toolbar button for the editor UI.
+          
+          3. **Server Feature:**  
+             - `src/lexical/features/FootnoteFeature.server.ts`  
+             Registers the node and links the client feature for Payload's server-side config.
+          
+          4. **Modal & Popup:**  
+             - `src/lexical/plugins/Modal.tsx`  
+               Minimal, dark-themed modal for adding/editing footnotes.
+             - `src/lexical/plugins/Popup.tsx`  
+               Minimal popup for previewing, editing, or deleting footnotes.
+          
+          5. **State Management:**  
+             - `src/lexical/modalStore.ts`  
+             Uses Valtio for modal open/close and state.
