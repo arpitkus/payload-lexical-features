@@ -52,7 +52,7 @@
      Footnotes should be editable and persist with content.
 
 
-               ### Main Implementation Steps
+          Main Implementation Steps
           
           1. **Custom Node:**  
              - `src/lexical/nodes/FootnoteNode.ts`  
@@ -75,3 +75,4 @@
           5. **State Management:**  
              - `src/lexical/modalStore.ts`  
              Uses Valtio for modal open/close and state.
+<img width="365" alt="image" src="https://github.com/user-attachments/assets/28d10bec-0475-4c06-88d2-13ca99719b01" />
