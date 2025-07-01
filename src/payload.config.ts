@@ -4,6 +4,7 @@ import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
+import { FootnoteFeature } from './lexical/features/FootnoteFeature.server'
 import { fileURLToPath } from 'url'
 import { MarkFeature } from './features/mark'
 import sharp from 'sharp'
@@ -13,7 +14,6 @@ import { Posts } from './collections/Posts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const adminCss = fs.readFileSync(path.resolve(dirname, './styles/admin.css'), 'utf-8')
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -30,6 +30,8 @@ export default buildConfig({
         ...defaultFeatures.filter((feature) => !removeFeatures.includes(feature.key)),
         //  i will add features here
         MarkFeature(),
+        FootnoteFeature(),
+        
       ]
     },
   }),
