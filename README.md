@@ -29,7 +29,29 @@
  ## Running the Project
      pnpm dev
  
- 
+## Core Lexical Concepts Used
+1. **Nodes**  
+   - `ElementNode`: Base for container or inline elements (e.g. our `FootnoteNode`).  
+   - **Key methods**: `createDOM`, `updateDOM`, `exportJSON`, `importJSON`.
+
+2. **Commands**  
+   - `createCommand<T>()`: Defines a typed command.  
+   - `editor.dispatchCommand(cmd, payload)`: Triggers command.  
+   - `editor.registerCommand(cmd, handler, priority)`: Listens for command.
+
+3. **Selections**  
+   - `$getSelection()`: Retrieves current selection.  
+   - `RangeSelection`: Handles anchor/focus, formatting queries.
+
+4. **Plugins**  
+   - React components using `useLexicalComposerContext()`.  
+   - **Built‑in**: `RichTextPlugin`, `OnChangePlugin`, `HistoryPlugin`.  
+   - **Custom**: Modal and Popup components.
+
+5. **Serialization**  
+   - `exportJSON()`: Serialize node state for persistence.  
+   - `importJSON()`: Rehydrate from stored JSON.
+
  ## Custom Mark Feature
  
      The custom highlight feature is implemented in src/features/mark/.
